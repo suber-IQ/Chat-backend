@@ -1,4 +1,3 @@
-import { CustomError, IErrorResponse } from './shared/globals/helpers/error-handler';
 import { Application, json, urlencoded, Response, Request, NextFunction } from 'express';
 import http from 'http';
 import cors from 'cors';
@@ -9,11 +8,12 @@ import Logger from 'bunyan';
 // import  helmet from "helmet"
 import 'express-async-errors';
 import compression from 'compression';
-import { config } from './config';
+import { config } from '@root/config';
+import ApplicationRoutes from '@root/routes';
 import { Server } from 'socket.io';
 import { createClient } from 'redis';
 import { createAdapter } from '@socket.io/redis-adapter';
-import ApplicationRoutes from './routes';
+import { CustomError, IErrorResponse } from '@global/helpers/error-handler';
 
 const SERVER_PORT = config.PORT;
 const log: Logger = config.createLogger('server');
